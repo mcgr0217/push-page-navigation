@@ -19,18 +19,29 @@ html {
 
 
 body{
-  font-family: sans-serif;
-  @include zero;
-  // Hides close button if there is no js
-  &.noscript .close-btn,
-  &.noscript .toggle-btn{
+    font-family: sans-serif;
+    @include zero;
+    // Hides close button if there is no js
+    &.noscript .close-btn,
+    &.noscript .toggle-btn{
       display: none;
-  }
+    }
 }
 
 header {
-  padding: 0 1em;
-  position: relative;
+    padding: 0 1em;
+    position: relative;
+}
+
+.img-flex {
+    display: block;
+    width: 100%;
+}
+
+.logo {
+    width: 8%;
+    padding-left: 5px;
+    display: inline-block;
 }
 
 .toggle-btn {
@@ -40,75 +51,73 @@ header {
 }
 
 .navigation {
-    ul{
+    ul {
         padding: 0;
     }
-    li{
-        list-style: none;
-        &:first-child a{
-            border-top: 1px solid $light-grey;
+    li {
+        list-style-type: none;
+        background-color: $blue;
+        text-transform: uppercase;
+    &:first-child a {
+        border-top: 1px solid $blue;
     }
-    a{
+    a {
         display: block;
         text-align: center;
         padding: .5em 1em;
-        border-bottom: 1px solid $light-grey;
+        border-bottom: 1px solid $blue;
         text-decoration: none;
+        color: $white;
     }
-  } // li
-} // .navigation
+  }
+} //.navigation
 
-.toggle-btn,
-.close-btn{
-    color: $text-color;
-    text-decoration: none;
-    height: 40px;
-    width: 40px;
-    &:before {
-        height: 40px;
-        width: 40px;
-        display: inline-block;
-        padding: 13px 11px;
-        border: 1px solid $light-grey;
-    }
-    span{
-        @include element-invisible;
-    }
+.toggle-btn, {
+    @include btn ($blue)
+  }
+
+.close-btn {
+    @include btn ($text-color)
 }
 
-.close-btn{
+
+span {
+    @include element-invisible;
+}
+
+.close-btn {
     margin: 1em;
 }
+//** Sliding Navigation
 
-/**
-*sliding navigation
-*/
+// Page should move when the nav. opens
+// This is the only time we will even use max-width EVER.
 
-// Page should move when the nav opens
-// This is the only time we will ever use max width EVER.
 
-@media only screen and (max-width: 60em){
-    .site-wrapper{
+@media only screen and (max-width: 60em) {
+    .site-wrapper {
         position: relative;
         overflow: hidden;
         width: 100%;
-        z-index: 100;
-        .sliding-canvas{
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform: translateX(0);
-            transition: all 300ms ease-in-out;
-        }
-        &[data-state="slide-open"] .sliding-canvas{
-            transform: translateX(-100%);
-        }
-        &[data-state="slide-open"]{
-            overflow: visible;
-        }
-    } // close site wrapper
-    
-    .navigation{
+        z-index: 100%;
+    .sliding-canvas {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateX(0);
+        transition: all 300ms ease-in-out;
+    }
+
+    &[data-state="slide-open"] .sliding-canvas {
+      transform: translateX(-100%);
+    }
+
+    &[data-state="slide-open"]{
+      overflow: visible;
+    }
+  } // .site-wrapper
+
+    .navigation {
         position: absolute;
         width: 100%;
         right: -100%;
@@ -117,16 +126,41 @@ header {
         padding: 0;
         min-height: 800px;
     }
-} // media query
+}  //@media query
 
-@media only screen and (min-width: 60em){
-    .toggle-btn,
-    .close-btn{
+
+@media only screen and (min-width: 60em) {
+    .toggle-btn, .close-btn {
         display: none;
     }
-}
 
-body.noscript .navigation{
+    .navigation {
+        padding-right: 5em;
+    ul {
+        padding-right: 1em;
+        float: right;
+        padding-top: 3em;
+    }/* closes ul*/
+    li {
+        list-style-type: none;
+        background-color: transparent;
+        display: inline-block;
+        &:first-child a {
+            border-top: none;
+      } /* closes first-child a*/
+      a{
+        display: block;
+        text-align: center;
+        padding: .5em 1em;
+        border-bottom: none;
+        text-decoration: none;
+        color: $blue;
+      } /* closes a*/
+     } /* closes li*/
+    } /* closes .nav*/
+} /* closes media query*/
+
+body.script .navigation {
     position: static;
     right: auto;
 }
