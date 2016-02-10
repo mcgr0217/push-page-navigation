@@ -45,6 +45,17 @@ header {
   position: relative;
 }
 
+.img-flex {
+  display: block;
+  width: 100%;
+}
+
+.logo {
+  width: 8%;
+  padding-left: 5px;
+  display: inline-block;
+}
+
 .toggle-btn {
   position: absolute;
   right: 1em;
@@ -56,40 +67,55 @@ header {
 }
 
 .navigation li {
-  list-style: none;
+  list-style-type: none;
+  background-color: #6FCCDD;
+  text-transform: uppercase;
 }
 
 .navigation li:first-child a {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #6FCCDD;
 }
 
 .navigation li a {
   display: block;
   text-align: center;
   padding: .5em 1em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #6FCCDD;
   text-decoration: none;
+  color: #fff;
 }
 
-.toggle-btn,
+.toggle-btn {
+  color: #6FCCDD;
+  text-decoration: none;
+  height: 40px;
+  width: 40px;
+  padding-top: .5em;
+}
+
+.toggle-btn:before {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  padding: 13px 11px;
+}
+
 .close-btn {
   color: #222;
   text-decoration: none;
   height: 40px;
   width: 40px;
+  padding-top: .5em;
 }
 
-.toggle-btn:before,
 .close-btn:before {
-  height: 80px;
+  height: 40px;
   width: 40px;
   display: inline-block;
   padding: 13px 11px;
-  border: 1px solid #ccc;
 }
 
-.toggle-btn span,
-.close-btn span {
+span {
   position: absolute !important;
   height: 1px;
   width: 1px;
@@ -101,15 +127,12 @@ header {
   margin: 1em;
 }
 
-/**
-*sliding navigation
-*/
 @media only screen and (max-width: 60em) {
   .site-wrapper {
     position: relative;
     overflow: hidden;
     width: 100%;
-    z-index: 100;
+    z-index: 100%;
   }
   .site-wrapper .sliding-canvas {
     width: 100%;
@@ -140,30 +163,44 @@ header {
 }
 
 @media only screen and (min-width: 60em) {
-  .toggle-btn,
-  .close-btn {
+  .toggle-btn, .close-btn {
     display: none;
   }
+  .navigation {
+    padding-right: 5em;
+    /* closes ul*/
+    /* closes li*/
+  }
+  .navigation ul {
+    padding-right: 1em;
+    float: right;
+    padding-top: 3em;
+  }
+  .navigation li {
+    list-style-type: none;
+    background-color: transparent;
+    display: inline-block;
+    /* closes first-child a*/
+    /* closes a*/
+  }
+  .navigation li:first-child a {
+    border-top: none;
+  }
+  .navigation li a {
+    display: block;
+    text-align: center;
+    padding: .5em 1em;
+    border-bottom: none;
+    text-decoration: none;
+    color: #6FCCDD;
+  }
+  /* closes .nav*/
 }
 
-body.noscript .navigation {
+/* closes media query*/
+body.script .navigation {
   position: static;
   right: auto;
-}
-
-.banner {
-  margin: 0;
-  padding: 0;
-  width: 60%;
-  text-align: center;
-}
-
-.space {
-  position: absolute;
-  top: 350px;
-  text-align: center;
-  color: #fff;
-  padding: 5rem;
 }
 
 .grid {
