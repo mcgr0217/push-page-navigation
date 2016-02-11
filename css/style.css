@@ -51,9 +51,27 @@ header {
 }
 
 .logo {
-  width: 8%;
-  padding-left: 5px;
+  padding-left: 20px;
   display: inline-block;
+  width: 20%;
+}
+
+@media only screen and (min-width: 20em) {
+  .logo {
+    width: 15%;
+  }
+}
+
+@media only screen and (min-width: 40em) {
+  .logo {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .logo {
+    width: 25%;
+  }
 }
 
 .toggle-btn {
@@ -63,11 +81,14 @@ header {
 }
 
 .navigation ul {
-  padding: 0;
+  padding-right: 2em;
+  float: right;
+  padding-top: 3em;
 }
 
 .navigation li {
   list-style-type: none;
+  padding-right: .5em;
   background-color: #6FCCDD;
   text-transform: uppercase;
 }
@@ -83,6 +104,14 @@ header {
   border-bottom: 1px solid #6FCCDD;
   text-decoration: none;
   color: #fff;
+}
+
+.navigation li a:hover {
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
+  opacity: 0.9;
+  color: #551a8b;
 }
 
 .toggle-btn {
@@ -167,14 +196,14 @@ span {
     display: none;
   }
   .navigation {
-    padding-right: 5em;
+    padding-right: 4em;
     /* closes ul*/
     /* closes li*/
   }
   .navigation ul {
     padding-right: 1em;
     float: right;
-    padding-top: 3em;
+    padding-top: 1em;
   }
   .navigation li {
     list-style-type: none;
@@ -182,6 +211,13 @@ span {
     display: inline-block;
     /* closes first-child a*/
     /* closes a*/
+  }
+  .navigation li:hover {
+    -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+            transform: scale(0.95);
+    opacity: 0.9;
+    color: #551a8b;
   }
   .navigation li:first-child a {
     border-top: none;

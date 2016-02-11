@@ -39,9 +39,18 @@ header {
 }
 
 .logo {
-    width: 8%;
-    padding-left: 5px;
+    padding-left: 20px;
     display: inline-block;
+    width: 20%;
+    @media only screen and (min-width: 20em) {
+        width: 15%;
+    }
+    @media only screen and (min-width: 40em) {
+        width: 35%;
+    }
+    @media only screen and (min-width: 60em) {
+        width: 25%;
+    }
 }
 
 .toggle-btn {
@@ -52,10 +61,13 @@ header {
 
 .navigation {
     ul {
-        padding: 0;
+        padding-right: 2em;
+        float: right;
+        padding-top: 3em;
     }
     li {
         list-style-type: none;
+        padding-right: .5em;
         background-color: $blue;
         text-transform: uppercase;
     &:first-child a {
@@ -68,13 +80,18 @@ header {
         border-bottom: 1px solid $blue;
         text-decoration: none;
         color: $white;
+        &:hover {
+            transform: scale(0.95);
+            opacity: 0.9;
+            color: #551a8b;
+        }
     }
   }
 } //.navigation
 
 .toggle-btn, {
     @include btn ($blue)
-  }
+}
 
 .close-btn {
     @include btn ($text-color)
@@ -135,19 +152,25 @@ span {
     }
 
     .navigation {
-        padding-right: 5em;
+        padding-right: 4em;
     ul {
         padding-right: 1em;
         float: right;
-        padding-top: 3em;
+        padding-top: 1em;
     }/* closes ul*/
     li {
         list-style-type: none;
         background-color: transparent;
         display: inline-block;
+        &:hover {
+            transform: scale(0.95);
+            opacity: 0.9;
+            color: #551a8b;
+        }
         &:first-child a {
             border-top: none;
       } /* closes first-child a*/
+        
       a{
         display: block;
         text-align: center;
