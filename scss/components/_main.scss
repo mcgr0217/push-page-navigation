@@ -43,7 +43,7 @@ header {
     display: inline-block;
     width: 20%;
     @media only screen and (min-width: 20em) {
-        width: 15%;
+        width: 1%;
     }
     @media only screen and (min-width: 40em) {
         width: 35%;
@@ -62,7 +62,6 @@ header {
 .navigation {
     ul {
         padding-right: 2em;
-        float: right;
         padding-top: 3em;
     }
     li {
